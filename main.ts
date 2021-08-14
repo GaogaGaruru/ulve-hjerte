@@ -1,3 +1,6 @@
+input.onButtonPressed(Button.A, function () {
+    input.setSoundThreshold(SoundThreshold.Loud, 255)
+})
 function Ændre_øjne () {
     if (tilfældigt == 10) {
         radio.sendString("blink")
@@ -5,9 +8,15 @@ function Ændre_øjne () {
     if (xRotation > 50 && xRotation < 130) {
         radio.sendString("vågen")
     } else {
-    	
+        radio.sendString("sov")
     }
 }
+input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+    soundExpression.happy.play()
+})
+input.onSound(DetectedSound.Loud, function () {
+    soundExpression.sad.play()
+})
 function hjerte () {
     basic.showIcon(IconNames.Heart)
     basic.pause(2000)
